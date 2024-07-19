@@ -1,0 +1,8 @@
+services:
+  bench:
+    extends:
+      service: base-bench
+      file: ../rpc/docker-compose.bench.yml
+    depends_on: [ "healthy" ]
+    volumes:
+      - ./go.protocol.privnet.single.yml:/go.protocol.privnet.yml

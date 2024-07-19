@@ -1,0 +1,23 @@
+networks:
+  default:
+    name: neo_go_network
+    ipam:
+      config:
+        - subnet: 172.200.0.0/24
+          gateway: 172.200.0.254
+
+services:
+  node:
+    extends:
+      service: base-sharp
+      file: docker-compose.node.yml
+    ports: [ "20331:20331" ]
+    volumes:
+      - ./wallet.one.json:/neo-cli/wallet.json
+      - ./sharp.config.single.json:/neo-cli/config.json
+
+  healthy:
+    image: alpine
+    depends_on:
+      node:
+        condition: service_healthy

@@ -1,0 +1,80 @@
+#@ load("@ytt:data", "data")
+#@ for i in range(0,2+data.values.validators_count):
+---
+ProtocolConfiguration:
+  Magic: 56753
+  #@ if data.values.nodes_info[i].node_name == "single":
+  MemPoolSize: 50000
+  TimePerBlock: 1s
+  ValidatorsCount: 1
+  StandbyCommittee:
+    - #@ data.values.nodes_info[i].validator_hash
+  SeedList:
+    - #@ "node:{}".format(data.values.nodes_info[i].node_port)
+  #@ else:
+  MemPoolSize: 50000
+  TimePerBlock: 5s
+  ValidatorsCount: #@ data.values.validators_count
+  StandbyCommittee:
+    #@ for j in range(2,2+data.values.validators_count):
+    - #@ data.values.nodes_info[j].validator_hash
+      #@ end
+  SeedList:
+    #@ for j in range(2,2+data.values.validators_count):
+    - #@ "node_{}:{}".format(data.values.nodes_info[j].node_name, data.values.nodes_info[j].node_port)
+      #@ end
+  #@ end
+  VerifyTransactions: true
+  MaxTransactionsPerBlock: 65535
+  MaxBlockSize: 16777216
+  MaxBlockSystemFee: 1600000000000
+
+ApplicationConfiguration:
+  SkipBlockVerification: false
+  #! LogPath could be set up in case you need stdout logs to some proper file.
+  #! LogPath: "./log/neogo.log"
+  DBConfiguration:
+    Type: "leveldb" #! other options: 'inmemory','redis','boltdb', 'badgerdb'.
+    LevelDBOptions:
+      DataDirectoryPath: "/chains/privnet"
+    BoltDBOptions:
+      FilePath: "./chains/privnet.bolt"
+  P2P:
+    Addresses:
+      - #@ ":{}".format(data.values.nodes_info[i].node_port)
+    DialTimeout: 3s
+    ProtoTickInterval: 2s
+    PingInterval: 10s
+    PingTimeout: 30s
+    MaxPeers: 10
+    #@ if data.values.nodes_info[i].node_name == "single":
+    MinPeers: 0
+    #@ else:
+    MinPeers: 3
+    #@ end
+    AttemptConnPeers: 5
+  Relay: true
+  RPC:
+    Enabled: true
+    EnableCORSWorkaround: false
+    Addresses:
+      - #@ ":{}".format(data.values.nodes_info[i].node_rpc_port)
+    MaxGasInvoke: 50
+  Monitoring:
+    Enabled: false
+    Addresses:
+      - #@ ":{}".format(data.values.nodes_info[i].node_monitoring_port)
+  Pprof:
+    Enabled: false
+    Addresses:
+      - #@ ":{}".format(data.values.nodes_info[i].node_pprof_port)
+  Prometheus:
+    Enabled: false
+    Addresses:
+      - #@ ":{}".format(data.values.nodes_info[i].node_prometheus_port)
+  Consensus:
+    Enabled: true
+    UnlockWallet:
+      Path: /config/wallet.json
+      Password: #@ data.values.nodes_info[i].wallet_password
+#@ end

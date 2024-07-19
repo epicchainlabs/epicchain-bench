@@ -1,0 +1,56 @@
+networks:
+  default:
+    name: neo_go_network
+    ipam:
+      config:
+        - subnet: 172.200.0.0/24
+          gateway: 172.200.0.254
+
+services:
+  node_one:
+    extends:
+      service: base-sharp
+      file: docker-compose.node.yml
+    container_name: neo-cli-node-one
+    volumes:
+      - ./wallet.one.json:/neo-cli/wallet.json
+      - ./sharp.config.one.json:/neo-cli/config.json
+
+  node_two:
+    extends:
+      service: base-sharp
+      file: docker-compose.node.yml
+    container_name: neo-cli-node-two
+    volumes:
+      - ./wallet.two.json:/neo-cli/wallet.json
+      - ./sharp.config.two.json:/neo-cli/config.json
+
+  node_three:
+    extends:
+      service: base-sharp
+      file: docker-compose.node.yml
+    container_name: neo-cli-node-three
+    volumes:
+      - ./wallet.three.json:/neo-cli/wallet.json
+      - ./sharp.config.three.json:/neo-cli/config.json
+
+  node_four:
+    extends:
+      service: base-sharp
+      file: docker-compose.node.yml
+    container_name: neo-cli-node-four
+    volumes:
+      - ./wallet.four.json:/neo-cli/wallet.json
+      - ./sharp.config.four.json:/neo-cli/config.json
+
+  healthy:
+    image: alpine
+    depends_on:
+      node_one:
+        condition: service_healthy
+      node_two:
+        condition: service_healthy
+      node_three:
+        condition: service_healthy
+      node_four:
+        condition: service_healthy
