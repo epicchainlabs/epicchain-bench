@@ -4,8 +4,8 @@ import (
 	"flag"
 	"os"
 
-	"github.com/nspcc-dev/neo-bench/internal"
-	"github.com/nspcc-dev/neo-go/pkg/crypto/keys"
+	"github.com/epicchainlabs/epicchain-bench/internal"
+	"github.com/epicchainlabs/epicchain-go/pkg/crypto/keys"
 )
 
 var (

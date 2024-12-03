@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/docker/docker/api/types"
-	"github.com/nspcc-dev/neo-bench/internal"
+	"github.com/epicchainlabs/epicchain-bench/internal"
 )
 
 // Main steps for testing are:

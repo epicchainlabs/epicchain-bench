@@ -1,4 +1,4 @@
-module github.com/nspcc-dev/neo-bench
+module github.com/epicchainlabs/epicchain-bench
 
 go 1.20
 
@@ -9,8 +9,8 @@ require (
 	github.com/k14s/ytt v0.30.0
 	github.com/mailru/easyjson v0.7.7
 	github.com/moby/moby v25.0.3+incompatible
-	github.com/nspcc-dev/neo-go v0.106.0
-	github.com/nspcc-dev/neo-go/pkg/interop v0.0.0-20240521091047-78685785716d
+	github.com/epicchainlabs/epicchain-go v0.106.0
+	github.com/epicchainlabs/epicchain-go/pkg/interop v0.0.0-20240521091047-78685785716d
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.18.2
 	github.com/valyala/fasthttp v1.52.0

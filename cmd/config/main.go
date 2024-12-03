@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/k14s/ytt/pkg/cmd/template"
-	"github.com/nspcc-dev/neo-go/pkg/config"
+	"github.com/epicchainlabs/epicchain-go/pkg/config"
 	"gopkg.in/yaml.v2"
 )
 

@@ -12,17 +12,17 @@ import (
 	"time"
 
 	"github.com/Workiva/go-datastructures/queue"
-	"github.com/nspcc-dev/neo-go/pkg/config/netmode"
-	"github.com/nspcc-dev/neo-go/pkg/core/transaction"
-	"github.com/nspcc-dev/neo-go/pkg/crypto/keys"
-	"github.com/nspcc-dev/neo-go/pkg/interop/native/gas"
-	"github.com/nspcc-dev/neo-go/pkg/interop/native/neo"
-	"github.com/nspcc-dev/neo-go/pkg/io"
-	"github.com/nspcc-dev/neo-go/pkg/smartcontract/callflag"
-	"github.com/nspcc-dev/neo-go/pkg/util"
-	"github.com/nspcc-dev/neo-go/pkg/vm/emit"
-	"github.com/nspcc-dev/neo-go/pkg/vm/opcode"
-	"github.com/nspcc-dev/neo-go/pkg/wallet"
+	"github.com/epicchainlabs/epicchain-go/pkg/config/netmode"
+	"github.com/epicchainlabs/epicchain-go/pkg/core/transaction"
+	"github.com/epicchainlabs/epicchain-go/pkg/crypto/keys"
+	"github.com/epicchainlabs/epicchain-go/pkg/interop/native/gas"
+	"github.com/epicchainlabs/epicchain-go/pkg/interop/native/neo"
+	"github.com/epicchainlabs/epicchain-go/pkg/io"
+	"github.com/epicchainlabs/epicchain-go/pkg/smartcontract/callflag"
+	"github.com/epicchainlabs/epicchain-go/pkg/util"
+	"github.com/epicchainlabs/epicchain-go/pkg/vm/emit"
+	"github.com/epicchainlabs/epicchain-go/pkg/vm/opcode"
+	"github.com/epicchainlabs/epicchain-go/pkg/wallet"
 )
 
 type (

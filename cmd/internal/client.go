@@ -14,11 +14,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/nspcc-dev/neo-go/pkg/core/block"
-	"github.com/nspcc-dev/neo-go/pkg/io"
-	"github.com/nspcc-dev/neo-go/pkg/neorpc"
-	"github.com/nspcc-dev/neo-go/pkg/neorpc/result"
-	"github.com/nspcc-dev/neo-go/pkg/util"
+	"github.com/epicchainlabs/epicchain-go/pkg/core/block"
+	"github.com/epicchainlabs/epicchain-go/pkg/io"
+	"github.com/epicchainlabs/epicchain-go/pkg/neorpc"
+	"github.com/epicchainlabs/epicchain-go/pkg/neorpc/result"
+	"github.com/epicchainlabs/epicchain-go/pkg/util"
 	"github.com/spf13/viper"
 	"github.com/valyala/fasthttp"
 )

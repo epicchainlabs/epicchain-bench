@@ -7,7 +7,7 @@ WORKDIR /neo-go
 RUN apk add --no-cache git
 
 ARG REV="v0.106.0"
-ARG REPO="github.com/nspcc-dev/neo-go"
+ARG REPO="github.com/epicchainlabs/epicchain-go"
 
 # Clone and build repo:
 RUN set -x \

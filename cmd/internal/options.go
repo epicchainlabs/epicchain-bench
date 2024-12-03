@@ -1,8 +1,8 @@
 package internal
 
 import (
-	"github.com/nspcc-dev/neo-go/pkg/crypto/keys"
-	"github.com/nspcc-dev/neo-go/pkg/io"
+	"github.com/epicchainlabs/epicchain-go/pkg/crypto/keys"
+	"github.com/epicchainlabs/epicchain-go/pkg/io"
 )
 
 // BenchOptions describes transactions contained in a dump.

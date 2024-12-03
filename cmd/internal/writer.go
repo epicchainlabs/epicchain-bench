@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/nspcc-dev/neo-go/pkg/io"
+	"github.com/epicchainlabs/epicchain-go/pkg/io"
 )
 
 // WriteDump generates and writes the specific number of transactions to file.

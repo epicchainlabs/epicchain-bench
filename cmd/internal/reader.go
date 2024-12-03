@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/Workiva/go-datastructures/queue"
-	"github.com/nspcc-dev/neo-go/pkg/config"
-	"github.com/nspcc-dev/neo-go/pkg/io"
+	"github.com/epicchainlabs/epicchain-go/pkg/config"
+	"github.com/epicchainlabs/epicchain-go/pkg/io"
 	"gopkg.in/yaml.v2"
 )
 
